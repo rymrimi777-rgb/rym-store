@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: YOUR_GITHUB_USER/rym-store   # edit
+  repo: rymrimi777-rgb/rym-store
   branch: main
   base_url: https://YOUR-OAUTH-PROXY.example.workers.dev   # GitHub OAuth proxy (see README)
 media_folder: public/images/products
