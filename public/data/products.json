@@ -1,7 +1,61 @@
 {
   "products": [
-    {"slug":"memento","name":"MEMENTO","description":"An offline-first mobile utility application.","status":"","platforms":["Mobile"],"tech":[],"features":[],"links":[],"bg":"#DDB8D6","fg":"#4A2E22","published":true,"icon":null,"screenshots":[],"versions":[]},
-    {"slug":"1734","name":"1734","description":"","status":"","platforms":[],"tech":[],"features":[],"links":[],"bg":"#CBD9E8","fg":"#4A2E22","published":true,"icon":null,"screenshots":[],"versions":[]},
-    {"slug":"echo-of-mossbell","name":"Echo of Mossbell","description":"A pixel-art adventure game, currently in beta.","status":"Beta","platforms":["Web browser"],"tech":[],"features":[],"links":[{"label":"Play now","url":"https://echoof-mossbell.pages.dev/"}],"bg":"#4C4A23","fg":"#FDFBEF","published":true,"icon":null,"screenshots":[],"versions":[]}
+    {
+      "slug": "memento",
+      "name": "MEMENTO",
+      "description": "An offline-first mobile utility application.",
+      "status": "beta",
+      "platforms": [
+        "Mobile"
+      ],
+      "tech": [],
+      "features": [],
+      "links": [],
+      "bg": "#ddb8d6",
+      "fg": "#4a2e22",
+      "published": true,
+      "icon": null,
+      "screenshots": [],
+      "versions": []
+    },
+    {
+      "slug": "1734",
+      "name": "1734",
+      "description": "",
+      "status": "",
+      "platforms": [],
+      "tech": [],
+      "features": [],
+      "links": [],
+      "bg": "#CBD9E8",
+      "fg": "#4A2E22",
+      "published": true,
+      "icon": null,
+      "screenshots": [],
+      "versions": []
+    },
+    {
+      "slug": "echo-of-mossbell",
+      "name": "Echo of Mossbell",
+      "description": "A pixel-art adventure game, currently in beta.",
+      "status": "Beta",
+      "platforms": [
+        "Web browser"
+      ],
+      "tech": [],
+      "features": [],
+      "links": [
+        {
+          "label": "Play now",
+          "url": "https://echoof-mossbell.pages.dev/"
+        }
+      ],
+      "bg": "#4C4A23",
+      "fg": "#FDFBEF",
+      "published": true,
+      "icon": null,
+      "screenshots": [],
+      "versions": []
+    }
   ]
 }
