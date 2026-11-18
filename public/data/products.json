@@ -16,7 +16,16 @@
       "published": true,
       "icon": null,
       "screenshots": [],
-      "versions": []
+      "versions": [
+        {
+          "version": "1.1.0",
+          "date": "2026-11-18",
+          "notes": "",
+          "tag": "memento-v1.1.0",
+          "releaseId": 450627143,
+          "assets": []
+        }
+      ]
     },
     {
       "slug": "1734",
