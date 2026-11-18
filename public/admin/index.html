@@ -43,8 +43,8 @@ const run=async(btn,fn)=>{if(btn)btn.disabled=true;try{await fn()}catch(e){toast
 const slugify=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,40);
 const sz=n=>n>1048576?(n/1048576).toFixed(1)+" MB":Math.round(n/1024)+" KB";
 
-function showLogin(){$("#out").style.display="none";$("#root").innerHTML=`<div class="login"><h2>Log in</h2><label>Admin password</label><input type="password" id="pw" autocomplete="current-password"><button class="btn" id="go">Log in</button></div>`;
-  const go=()=>run($("#go"),async()=>{await api("POST","login",{password:$("#pw").value});await boot()});$("#go").onclick=go;$("#pw").onkeydown=e=>e.key==="Enter"&&go();$("#pw").focus()}
+function showLogin(){$("#out").style.display="none";$("#root").innerHTML=`<div class="login"><h2>Log in</h2><label for="pw">Admin password</label><input type="password" id="pw" autocomplete="current-password"><button class="btn" id="go">Log in</button></div>`;
+  const go=()=>run($("#go"),async()=>{await api("POST","login",{password:$("#pw").value});await boot()});$("#go").onclick=go;$("#pw").onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();go()}};$("#pw").focus()}
 async function boot(){const me=await fetch("/api/me",{credentials:"same-origin"}).then(r=>r.json()).catch(()=>({}));
   if(!me.authenticated)return showLogin();$("#out").style.display="";await load();draw()}
 async function load(){db=await api("GET","products")}
