@@ -15,7 +15,9 @@
       "fg": "#4a2e22",
       "published": true,
       "icon": "/media/memento/icon.jpg?v=1795041872793",
-      "screenshots": [],
+      "screenshots": [
+        "/media/memento/shot-1795041918577.png?v=1795041921905"
+      ],
       "versions": [
         {
           "version": "1.1.0",
