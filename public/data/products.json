@@ -59,7 +59,7 @@
     {
       "slug": "echo-of-mossbell",
       "name": "Echo of Mossbell",
-      "description": "A pixel-art adventure game, currently in beta.",
+      "description": "Welcome to Mossbell... 🍃\nYou weren't supposed to come here, but now that you're here...\nMy game Echoes of Mossbell is now open for testing!\nPlay FREE",
       "status": "Beta",
       "platforms": [
         "Web browser"
@@ -72,8 +72,8 @@
           "url": "https://echoof-mossbell.pages.dev/"
         }
       ],
-      "bg": "#4C4A23",
-      "fg": "#FDFBEF",
+      "bg": "#4c4a23",
+      "fg": "#fdfbef",
       "published": true,
       "icon": "/media/echo-of-mossbell/icon.jpg?v=1795126951029",
       "screenshots": [
