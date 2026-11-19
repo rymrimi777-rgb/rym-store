@@ -48,8 +48,20 @@ Optional: protect `/admin/*` with Cloudflare Access (free for up to 50 users).
 ## How publishing works
 Every admin action commits `public/data/products.json` (and images) to your branch; Cloudflare Pages redeploys automatically in about a minute. Releases and binaries are created immediately on GitHub. “Unpublish” hides a product from the store (drafts remain in the repo JSON, so don't put secrets in them).
 
+## Large APK & File Uploads (> 90 MB up to 2 GB)
+Cloudflare Pages Functions cap request bodies at **100 MB** (95 MB default). For files larger than 90 MB (such as 190 MB – 500 MB+ APKs):
+1. Run the local upload helper on your computer:
+   ```bash
+   node server/upload-helper.mjs
+   ```
+2. In the admin dashboard, select your large APK and click **Upload file**. The dashboard automatically streams the binary directly to GitHub Releases via the local helper without passing through Cloudflare.
+3. Or upload directly from the command line:
+   ```bash
+   node server/upload-helper.mjs --file path/to/app.apk --slug my-app --version 1.0.0 --platform Android
+   ```
+
 ## Limits to know
-- Uploads through the admin go through a Pages Function: Cloudflare's free plan caps request bodies at **100 MB** (default limit here: 95 MB). For bigger files, attach them on GitHub (Releases page) manually.
+- Uploads through standard Cloudflare Pages Functions are capped at **95 MB**. Files above 90 MB use the local streaming helper above.
 - Allowed binaries: apk, aab, exe, msi, zip, dmg, deb, AppImage, gz, pkg — extension and file signature are both checked. Images: real PNG/JPEG/WebP, max 3 MB, max 8 screenshots (SVG is refused on purpose).
 - Cloudflare Pages free: 500 builds/month; each save triggers one deploy.
 
