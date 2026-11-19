@@ -80,6 +80,7 @@ export async function startMock() {
       const rel = releases.get(relId);
       if (rel) {
         if (!rel.assets) rel.assets = [];
+        rel.assets = rel.assets.filter(a => a.name !== name);
         rel.assets.push(asset);
       }
       res.writeHead(201, { "Content-Type": "application/json" });
@@ -109,10 +110,33 @@ export async function startMock() {
       return res.end(JSON.stringify(rel));
     }
 
-    // Release Edit / Delete: /repos/:o/:r/releases/:id
+    // Release by tag: /repos/:o/:r/releases/tags/:tag
+    const tagMatch = pathname.match(/^\/repos\/[^/]+\/[^/]+\/releases\/tags\/(.+)$/);
+    if (tagMatch && m === "GET") {
+      const tag = decodeURIComponent(tagMatch[1]);
+      for (const rel of releases.values()) {
+        if (rel.tag_name === tag) {
+          res.writeHead(200, { "Content-Type": "application/json" });
+          return res.end(JSON.stringify(rel));
+        }
+      }
+      res.writeHead(404, { "Content-Type": "application/json" });
+      return res.end(JSON.stringify({ message: "Not found" }));
+    }
+
+    // Release Edit / Delete / Get: /repos/:o/:r/releases/:id
     const relMatch = pathname.match(/^\/repos\/[^/]+\/[^/]+\/releases\/(\d+)$/);
     if (relMatch) {
       const id = Number(relMatch[1]);
+      if (m === "GET") {
+        const rel = releases.get(id);
+        if (!rel) {
+          res.writeHead(404, { "Content-Type": "application/json" });
+          return res.end(JSON.stringify({ message: "Not found" }));
+        }
+        res.writeHead(200, { "Content-Type": "application/json" });
+        return res.end(JSON.stringify(rel));
+      }
       if (m === "PATCH") {
         const raw = await readBody();
         const json = JSON.parse(raw.toString("utf8"));

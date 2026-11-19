@@ -136,7 +136,15 @@ try {
   // Load deployed-style /admin/ route
   await send("Page.navigate", { url: `http://127.0.0.1:${srvPort}/admin/` });
   await loadPromise;
-  await new Promise((r) => setTimeout(r, 400));
+
+  // Wait for #pw input to be rendered after boot() checks /api/me
+  let pwReady = false;
+  for (let i = 0; i < 50; i++) {
+    const check = await send("Runtime.evaluate", { expression: "Boolean(document.querySelector('#pw'))" });
+    if (check.result?.result?.value) { pwReady = true; break; }
+    await new Promise((r) => setTimeout(r, 100));
+  }
+  assert.ok(pwReady, "#pw input must be rendered on the page");
 
   // Check input accessibility & properties
   const props = (await send("Runtime.evaluate", {

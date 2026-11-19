@@ -18,7 +18,7 @@ const env = {
   SESSION_SECRET: "local-dev-session-secret-40-chars-long-secure",
   GITHUB_API: `http://127.0.0.1:${mockPort}`,
   GITHUB_UPLOADS: `http://127.0.0.1:${mockPort}`,
-  MAX_UPLOAD_MB: "95",
+  MAX_UPLOAD_MB: process.env.MAX_UPLOAD_MB || "2048",
 };
 
 // Seed initial products.json if it exists on disk

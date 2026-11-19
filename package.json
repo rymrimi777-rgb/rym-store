@@ -5,6 +5,6 @@
   "type": "module",
   "scripts": {
     "build": "node -e \"const fs=require('fs'); fs.rmSync('dist', {recursive:true, force:true}); fs.cpSync('public', 'dist', {recursive:true}); console.log('Built public -> dist');\"",
-    "test": "node test/e2e.mjs && node test/login-regression.mjs"
+    "test": "node test/e2e.mjs && node test/login-regression.mjs && node test/large-upload.test.mjs"
   }
 }

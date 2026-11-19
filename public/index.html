@@ -117,7 +117,11 @@ function product(slug){
  const V=p.versions||[],L=V[0],pl=p.platforms||[];
  const T=v=>v?esc(v):TBD,row=(a,b)=>`<div class="row"><span>${a}</span><span>${b}</span></div>`;
  const sz=n=>n>1048576?(n/1048576).toFixed(1)+" MB":Math.max(1,Math.round(n/1024))+" KB";
- const btns=[...(L?L.assets.map(a=>`<a class="btn" href="${esc(a.url)}" rel="noopener">${esc(a.platform||"Download")} · ${esc(a.name)} (${sz(a.size)})</a>`):[]),...(p.links||[]).map(l=>`<a class="btn" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`)].join("")||`<a class="btn" aria-disabled="true" role="link" tabindex="-1">Download link to be added</a>`;
+ const btns=[...(L?L.assets.map(a=>{
+   const isApk=/\.apk$/i.test(a.name)||(a.platform||"").toLowerCase()==="android";
+   const lbl=isApk?`Download APK · v${esc(L.version)} (${sz(a.size)})`:`Download ${esc(a.platform||"File")} · ${esc(a.name)} (${sz(a.size)})`;
+   return `<a class="btn" href="${esc(a.url)}" download="${esc(a.name)}" rel="noopener">${lbl}</a>`;
+ }):[]),...(p.links||[]).map(l=>`<a class="btn" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`)].join("")||`<a class="btn" aria-disabled="true" role="link" tabindex="-1">Coming Soon</a>`;
  const sh=p.screenshots||[];
  return `<div class="c"><div class="crumb"><a href="#/apps">← All apps</a></div><div class="pd"><div>${tile(p)}
  <h3>Screenshots</h3><div class="shots">${sh.length?sh.map(x=>`<img src="${esc(x)}" alt="${esc(p.name)} screenshot" loading="lazy">`).join(""):`<div>Screenshot placeholder</div><div>Screenshot placeholder</div>`}</div></div>
