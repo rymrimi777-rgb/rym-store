@@ -3,7 +3,7 @@
     {
       "slug": "memento",
       "name": "MEMENTO",
-      "description": "An offline-first mobile utility application.",
+      "description": "MEMENTO\nIt started with a silly question: why does my phone need 5 apps? One for photos, one for music, one for PDFs, one for QR codes, one for notes. So I said: let's put them all in one, and make it work without internet.\nWhat's inside:\n- A photo and video gallery with albums and favorites\n- 10 offline tools (Image to PDF, PDF Merger, compressor, QR, and more)\n- A music player that keeps playing in the background\n- A drawing corner\n- An encrypted private space\n- 3 languages: Arabic (full RTL), English, French\nAnd the intro screen has a tidy stack of pills. Touch one by mistake and everything",
       "status": "beta",
       "platforms": [
         "Mobile"
