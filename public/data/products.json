@@ -76,7 +76,9 @@
       "fg": "#FDFBEF",
       "published": true,
       "icon": "/media/echo-of-mossbell/icon.jpg?v=1795126951029",
-      "screenshots": [],
+      "screenshots": [
+        "/media/echo-of-mossbell/shot-1795127130080.jpg?v=1795127132448"
+      ],
       "versions": []
     }
   ]
