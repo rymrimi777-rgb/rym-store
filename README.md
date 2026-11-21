@@ -26,7 +26,7 @@ It is an official extension of my portfolio. It shares the same visual identity,
 | Product | What it is | Platform |
 | --- | --- | --- |
 | **MEMENTO** | Offline multi-tool Android app: gallery, quick tools, music, Quick Desk and a hidden vault | Android |
-| **Echoes of Mossbell** | Retro pixel-art RPG adventure (Python / Pygame-CE) | Windows, Android |
+| **Echoes of Mossbell** | Retro pixel-art RPG adventure (Python / Pygame-CE) | Windows, Android (soon) |
 | **1734** | Notebook and journal app to organize things your own way: covers, stickers, a folder-style history and an animated pixel-art rabbit | Android |
 
 ## How it works, in short
